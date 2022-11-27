@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#FFFFFF"
+    android:foregroundTint="#FEFEFE"
     tools:context=".MainActivity">
 
     <TextView
@@ -44,26 +46,58 @@
         android:id="@+id/imageView3"
         android:layout_width="348dp"
         android:layout_height="109dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="117dp"
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="506dp"
+        app:srcCompat="@drawable/rojo" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="188dp"
+        android:layout_height="58dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="428dp"
+        app:srcCompat="@drawable/rojo" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="188dp"
+        android:layout_height="58dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="166dp"
+        android:layout_marginBottom="428dp"
+        app:srcCompat="@drawable/rojo" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="188dp"
+        android:layout_height="58dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="218dp"
+        app:srcCompat="@drawable/rojo" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="188dp"
+        android:layout_height="58dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="82dp"
+        android:layout_marginBottom="217dp"
         app:srcCompat="@drawable/rojo" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="348dp"
         android:layout_height="109dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="336dp"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="286dp"
         app:srcCompat="@drawable/rojo" />
@@ -81,6 +115,40 @@
         android:layout_marginEnd="187dp"
         android:layout_marginBottom="68dp"
         android:text="CALDERA 1."
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvC2"
+        android:layout_width="214dp"
+        android:layout_height="33dp"
+        android:layout_alignStart="@+id/imageView3"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_alignEnd="@+id/imageView3"
+        android:layout_alignBottom="@+id/imageView3"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="-63dp"
+        android:text="AUMENTAR JARABE"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvC3"
+        android:layout_width="138dp"
+        android:layout_height="29dp"
+        android:layout_alignStart="@+id/imageView3"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_alignEnd="@+id/imageView3"
+        android:layout_alignBottom="@+id/imageView3"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="352dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginBottom="-272dp"
+        android:text="VENTILADOR"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -110,9 +178,9 @@
         android:layout_alignTop="@+id/imageView3"
         android:layout_alignEnd="@+id/imageView3"
         android:layout_alignBottom="@+id/imageView3"
-        android:layout_marginStart="187dp"
+        android:layout_marginStart="217dp"
         android:layout_marginTop="62dp"
-        android:layout_marginEnd="79dp"
+        android:layout_marginEnd="49dp"
         android:layout_marginBottom="18dp"
         android:text="nivel."
         android:textColor="#FFFFFF"
@@ -122,15 +190,15 @@
     <TextView
         android:id="@+id/tvNivel"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="43dp"
         android:layout_alignStart="@+id/imageView3"
         android:layout_alignTop="@+id/imageView3"
         android:layout_alignEnd="@+id/imageView3"
         android:layout_alignBottom="@+id/imageView3"
         android:layout_marginStart="115dp"
         android:layout_marginTop="67dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginBottom="23dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="-1dp"
         android:text="---"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
@@ -141,15 +209,11 @@
         android:id="@+id/btnC1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="270dp"
-        android:layout_marginTop="241dp"
         android:layout_marginEnd="47dp"
         android:layout_marginBottom="435dp"
-        android:text="ON"
+        android:text="LVL +1"
         android:textSize="20sp" />
 
     <TextView
@@ -170,7 +234,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tvNivel2"
+        android:id="@+id/tvTemperatura"
         android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_alignStart="@+id/imageView3"
@@ -187,33 +251,18 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnC"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="267dp"
-        android:layout_marginTop="459dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="217dp"
-        android:text="ON"
-        android:textSize="20sp" />
-
     <TextView
         android:id="@+id/tvLvlCaldera3"
-        android:layout_width="29dp"
-        android:layout_height="wrap_content"
+        android:layout_width="43dp"
+        android:layout_height="31dp"
         android:layout_alignStart="@+id/imageView3"
         android:layout_alignTop="@+id/imageView3"
         android:layout_alignEnd="@+id/imageView3"
         android:layout_alignBottom="@+id/imageView3"
         android:layout_marginStart="249dp"
         android:layout_marginTop="280dp"
-        android:layout_marginEnd="71dp"
-        android:layout_marginBottom="-196dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="-202dp"
         android:text="C."
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -232,6 +281,19 @@
         android:layout_marginEnd="190dp"
         android:layout_marginBottom="-150dp"
         android:text="CALDERA 2."
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Switch
+        android:id="@+id/SwC2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="236dp"
+        android:text="OFF"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold" />
