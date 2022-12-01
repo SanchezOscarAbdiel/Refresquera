@@ -19,12 +19,15 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.an.biometric.BiometricCallback;
+import com.an.biometric.BiometricManager;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BiometricCallback {
 
     TextView Nivel, Temperatura;
     Button btnC1;
@@ -55,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
         Suich = (Switch) findViewById(R.id.SwC2);
 
         inst();
+
+
 
         //METODO QUE SE ACTUALIZA CADA 2 SEGUNDOS
         mHandler.postDelayed(RecibeDatos, 1000);
@@ -181,14 +186,14 @@ public class MainActivity extends AppCompatActivity {
                                         .setPositiveButton("APROBAR", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int i) {
-
-                                            try {
-                                                OutputStream outputStream = btSocket.getOutputStream();
-                                                outputStream.write(2);
-                                                System.out.println("50");
-                                            } catch (IOException e) {
-                                                e.printStackTrace();
-                                            }
+                                            //HUELLA DACTILAR
+                                            new BiometricManager.BiometricBuilder(MainActivity.this)
+                                                    .setTitle("Add a title")
+                                                    .setSubtitle("Add a subtitle")
+                                                    .setDescription("Add a description")
+                                                    .setNegativeButtonText("Add a cancel button")
+                                                    .build()
+                                                    .authenticate(MainActivity.this);
 
                                             dialog.cancel();
                                         }
@@ -233,5 +238,59 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
+    @Override
+    public void onSdkVersionNotSupported() {
 
+    }
+
+    @Override
+    public void onBiometricAuthenticationNotSupported() {
+
+    }
+
+    @Override
+    public void onBiometricAuthenticationNotAvailable() {
+
+    }
+
+    @Override
+    public void onBiometricAuthenticationPermissionNotGranted() {
+
+    }
+
+    @Override
+    public void onBiometricAuthenticationInternalError(String error) {
+
+    }
+
+    @Override
+    public void onAuthenticationFailed() {
+
+    }
+
+    @Override
+    public void onAuthenticationCancelled() {
+
+    }
+
+    @Override
+    public void onAuthenticationSuccessful() {
+        try {
+            OutputStream outputStream = btSocket.getOutputStream();
+            outputStream.write(2);
+            System.out.println("50");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onAuthenticationHelp(int helpCode, CharSequence helpString) {
+
+    }
+
+    @Override
+    public void onAuthenticationError(int errorCode, CharSequence errString) {
+
+    }
 }
