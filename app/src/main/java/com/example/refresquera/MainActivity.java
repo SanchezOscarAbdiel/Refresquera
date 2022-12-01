@@ -1,15 +1,20 @@
 package com.example.refresquera;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -158,16 +163,59 @@ public class MainActivity extends AppCompatActivity {
 
             btnC1.setOnTouchListener(new View.OnTouchListener() {
 
+                @SuppressLint("ClickableViewAccessibility")
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                        try {
-                            OutputStream outputStream = btSocket.getOutputStream();
-                            outputStream.write(2);
-                            System.out.println("50");
-                        } catch (IOException e) {
-                            e.printStackTrace();
+
+                        if(subNivel.equals("MID")){
+                            AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
+                            final EditText input = new EditText(MainActivity.this);
+                            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                                    LinearLayout.LayoutParams.MATCH_PARENT,
+                                    LinearLayout.LayoutParams.MATCH_PARENT);
+                            input.setLayoutParams(lp);
+                            alerta.setView(input);
+
+                            alerta.setMessage("¡CUIDADO!: LLENAR EL GARABE A SU MAXIMA CAPACIDAD REQUIERE DE LA APROBACIÓN DE ALTO MANDO.").setCancelable(false)
+                                        .setPositiveButton("APROBAR", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int i) {
+
+                                            try {
+                                                OutputStream outputStream = btSocket.getOutputStream();
+                                                outputStream.write(2);
+                                                System.out.println("50");
+                                            } catch (IOException e) {
+                                                e.printStackTrace();
+                                            }
+
+                                            dialog.cancel();
+                                        }
+                                    })
+                                    .setNegativeButton("CANCELAR", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int i) {
+                                            dialog.cancel();
+                                        }
+                                    });
+                            AlertDialog titulo = alerta.create();
+                            titulo.setTitle("JARABE MAXIMO");
+                            titulo.show();
+                        }else if(!subNivel.equals("MID")){
+
+                            try {
+                                OutputStream outputStream = btSocket.getOutputStream();
+                                outputStream.write(2);
+                                System.out.println("50");
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
                         }
+
+
+
                         lastDown = System.currentTimeMillis();
                     } else if (event.getAction() == MotionEvent.ACTION_UP) {
                         lastDuration = System.currentTimeMillis() - lastDown;
