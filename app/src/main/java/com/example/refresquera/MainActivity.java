@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements BiometricCallback
 
             //ACTIVA VENTILADORES
             if(temperatura>23 || Suich.isChecked()){
-
+                Suich.setChecked(true);
                 try {
                     OutputStream outputStream = btSocket.getOutputStream();
                     outputStream.write(1);
@@ -162,6 +162,8 @@ public class MainActivity extends AppCompatActivity implements BiometricCallback
                     e.printStackTrace();
                 }
 
+            }else{
+                Suich.setChecked(false);
             }
 
 
@@ -188,10 +190,10 @@ public class MainActivity extends AppCompatActivity implements BiometricCallback
                                         public void onClick(DialogInterface dialog, int i) {
                                             //HUELLA DACTILAR
                                             new BiometricManager.BiometricBuilder(MainActivity.this)
-                                                    .setTitle("Add a title")
-                                                    .setSubtitle("Add a subtitle")
-                                                    .setDescription("Add a description")
-                                                    .setNegativeButtonText("Add a cancel button")
+                                                    .setTitle("HUELLA DIGITAL")
+                                                    .setSubtitle("Contacte con un administrador")
+                                                    .setDescription("Pepsico")
+                                                    .setNegativeButtonText("Cancelar")
                                                     .build()
                                                     .authenticate(MainActivity.this);
 
